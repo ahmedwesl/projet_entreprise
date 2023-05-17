@@ -4,7 +4,6 @@ import { PropsWithCustom, doCustomRender }                  from "./customRender
 import { fromStringTable }                                  from '../Tools/stringTable'
 import { checkLogin }                                       from "../Tools/login";
 import "./Login.scss"
-import "../images/Start_Background.jpg"
 
 
 
@@ -144,8 +143,9 @@ export function LoginForm(props: PropsWithCustom<LoginFormProps>) {
                     {isLogged ? (
                         p.children
                     ) : (
-                        <div className='login' style={{ backgroundImage: `url("../images/Start_Background.jpg")` }}>
+                        <div className='login'>
                             <LoginForm customRenderId={`${props.customRenderId}.Form`} {...p.formOptions} onLogin={handleLogin} />
+                            <img src={require('../images/Start_Background.jpg').default} alt="Description de l'image" />
                         </div>
                     )}
                 </LogoutContext.Provider>
