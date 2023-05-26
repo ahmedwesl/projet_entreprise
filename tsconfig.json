@@ -1,6 +1,12 @@
 {
     "compilerOptions": {  
         "jsx": "react-jsx",
-        "rootDirs": ["./src"],
-    }
+        "lib": ["es2015", "dom"],
+//        "rootDirs": ["./src"],
+        "paths": {
+            "afc": ["./node_modules/afc"]
+        },
+//        "types": ["afc"]
+    },
+    "include": ["./src"]
 }

@@ -3,7 +3,7 @@ import AppDemoGeneric           from "./AppGeneric";
 import { useState }             from "react";
 import {LoginFormProps} from "./Components/Login";
 import {Waiting} from "./Components/Waiting";
-
+import "./AppDemo.scss"
 let renderCustomLoginForm = (props: any, states: any) => {
     const { labelPassword, labelPasswordUserName, labelButton } = states.getLabels(props);
 
@@ -48,6 +48,7 @@ let getCustomRender = function(id: string): ((props: any, states: any, defRender
     if (id === "loginPage.Form") {
         return renderCustomLoginForm;
     }
+
 
 };
 function AppDemo () {

@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -33,20 +34,21 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "images/",
-            },
-          },
-        ],
+        type: 'asset/resource'
       },
+      {
+        test: /\.html$/i,
+        use: ["html-loader"]
+      }
     ],
   },
   resolve: {
+    /*plugins: [
+      new TsconfigPathsPlugin({configFile: "./tsconfig.json"})
+    ],
+    */
     extensions: ["*", ".js", ".jsx", ".ts", ".tsx", ".css", ".scss"],
+    //modules: ['src', 'node_modules']
   },
   devServer: {
     static: {

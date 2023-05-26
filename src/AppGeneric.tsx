@@ -12,7 +12,7 @@ function AppDemoGeneric() {
                 <Carte />
                 <LogoutButton customRenderId="logoutButton" />
             </Login>
-            <LogoutButton />
+            <input type="text"></input>
         </>
     );
 }

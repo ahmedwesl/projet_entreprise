@@ -6,12 +6,6 @@ import { checkLogin }                                       from "../Tools/login
 import "./Login.scss"
 
 
-
-
-
-
-
-
 type LoginFingerPrintProps = {
     test: string;
 }
@@ -22,7 +16,7 @@ export function LoginFingerPrint(props: PropsWithCustom<LoginFingerPrintProps>) 
 /*___________________________________________________________________*/
 
 export type LoginFormProps = {
-    onLogin         :  () => void
+    onLogin         :  (identity: any) => void
     labelPassword?  :  string;
     labelUserName?  :  string;
     labelButton?    :  string;
@@ -42,18 +36,18 @@ export function LoginForm(props: PropsWithCustom<LoginFormProps>) {
         setIsWaiting(true);
         checkLogin(username, password).then((response) => {
             setIsWaiting(false);
-            if (response === '') {
-                props.onLogin();
+            if (response.identity !== null) {
+                props.onLogin(response.identity);
             } else {
-                setError(response);
+                setError(response.error);
             }
         });
     };
     let getLabels = function (props: PropsWithCustom<LoginFormProps>) {
         return {
-            labelPassword: props.labelPassword || fromStringTable('LOGIN_PASSWORD_LABEL', 'Password'),
-            labelPasswordUserName: props.labelUserName || fromStringTable('LOGIN_USER_LABEL', 'User'),
-            labelButton: props.labelButton || fromStringTable('LOGIN_BUTTON_LABEL', 'Login')
+            labelPassword:          props.labelPassword || fromStringTable('LOGIN_PASSWORD_LABEL', 'Password'),
+            labelPasswordUserName:  props.labelUserName || fromStringTable('LOGIN_USER_LABEL', 'User'),
+            labelButton:            props.labelButton   || fromStringTable('LOGIN_BUTTON_LABEL', 'Login')
         }
     }
 
@@ -63,6 +57,7 @@ export function LoginForm(props: PropsWithCustom<LoginFormProps>) {
         return (
             <div className="login-container">
                 <form onSubmit={handleSubmit}>
+                    <div className="image-analyzer"></div>
                     <div className="form-group">
                         <label>{labelPasswordUserName} </label>
                         <input
@@ -73,14 +68,15 @@ export function LoginForm(props: PropsWithCustom<LoginFormProps>) {
                             className="login-input"
                         />
                     </div>
+                    <div className="fond-blanc"></div>
                     <div className="form-group">
                         <label>{labelPassword} </label>
                         <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            disabled={isWaiting}
-                            className="login-input"
+                            type        ="password"
+                            value       ={password}
+                            onChange    ={(e) => setPassword(e.target.value)}
+                            disabled    ={isWaiting}
+                            className   ="login-input"
                         />
                     </div>
                     <Waiting isWaiting={isWaiting} />
@@ -132,8 +128,9 @@ export function LoginForm(props: PropsWithCustom<LoginFormProps>) {
 
         const handleLogout = () => setIsLogged(false);
 
-        const handleLogin = () => {
+        const handleLogin = (identity: any) => {
             setIsLogged(true);
+            //Stocker identity dans context
         }
 
         let defRender = (p: PropsWithCustom<LoginProps>) => {
@@ -143,9 +140,10 @@ export function LoginForm(props: PropsWithCustom<LoginFormProps>) {
                     {isLogged ? (
                         p.children
                     ) : (
-                        <div className='login'>
+                        <div className='background-image'>
+                             <div className='login-image'></div>
+                            <div className='encadre-noir'></div>
                             <LoginForm customRenderId={`${props.customRenderId}.Form`} {...p.formOptions} onLogin={handleLogin} />
-                            <img src={require('../images/Start_Background.jpg').default} alt="Description de l'image" />
                         </div>
                     )}
                 </LogoutContext.Provider>

@@ -1,59 +1,106 @@
-
-
-.login {
-  background-image: url('../images/Start_Background.jpg');
-  /* Autres styles */
+body {
+  margin: 0;
+  margin-bottom: 0;
 }
 
-
-
-.login-container {
-  position: fixed;
-  top: 30%;
-  left: 0;
-  transform: translate(0, -50%);
-  display: flex;
+.login-container{
+  position:         fixed;
+  top:              27%;
+  left:             40px;
+  transform:        translate(0, -50%);
+  display:          flex;
   justify-content: center;
   align-items: center;
   width: 400px;
   height: 300px;
+  margin-left: 20px;
+
+  input {
+    color: red;
+    border: none;
+    outline: none;
+    background: transparent;
+    width:110%;
+    border-bottom: 2px solid black;
+    font-weight: bold;
+    font-size: 24px;
+  }
+}
+
+.fond-blanc {
+  position: absolute;
+  bottom: 0;
+  left: -15%;
+  width: 153%;
+  height: 80%;
+  z-index: -1;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .4) 15%, rgba(255, 255, 255, .8) 50%, rgba(255, 255, 255, .4) 85%, rgba(255, 255, 255, 0));
+
 }
 
 .form-group {
-  margin-bottom: 10px;
-}
+  top: 50%;
+  margin-bottom: 45px;
+  color: #606060;
+  font-weight: 700;
+  font-size: 25px ;
+  font-family: Calibri;
 
-.login-input {
-  position: relative;
-  color: black;
-  border: none;
-  outline: none;
-  background: transparent;
-  width: 100%;
-  border-bottom: 1px solid black;
-}
-
-.login-input::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: black;
 }
 
 .submit-button {
-  width: 100%;
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  margin-top: 50px;
+  background-color: #14bf61;
+  width: 125%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0 solid;
+  outline: 0!important;
+  color: #fff;
+  font-family: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  margin-top: 150px;
 }
 
-.login {
-  background-image: url('../images/Start_Background.jpg');
-  /* Autres styles */
+.background-image {
+  background-image: url(../images/Start_Background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+
+.image-analyzer {
+  background-image: url('../images/LogoAnalyzerOnline.png');
+  background-position: top left;
+  background-repeat: no-repeat;
+  height: 100px;
+  background-size: contain;
+  margin-bottom: 50px ;
+  margin-top: 70px;
+}
+
+.login-image {
+  background-image: url('../images/Start_Asterop.png');
+  top: calc(100vh - 60px);
+  position: absolute;
+  left: 50px;
+  width: 200px;
+  height: 58px;
+  z-index: 10000;
+  background-size: 100%;
+  float: right ;
+
+}
+
+.encadre-noir {
+  width: 35vw;
+  height: 100vh;
+  border: 2px #000 solid;
+  background-color: rgba(255,255,255,.8);
+  backdrop-filter: blur(14px);
+
 }
