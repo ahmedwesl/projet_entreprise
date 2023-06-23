@@ -10,8 +10,7 @@ export function Waiting(props: WaitingProps) {
             <div>
                 <p>Chargement en cours...</p>
                 <img
-                    src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"
-                    alt="Loading"
+
                 />
             </div>
         );

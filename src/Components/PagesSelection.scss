@@ -1,0 +1,37 @@
+.pagesSelectionContainer {
+  display:                 grid;
+  grid-template-columns:   repeat(2, 5cm);
+  grid-auto-rows:          5cm;
+  justify-content:         center;
+  align-items:             center;
+  gap:                     10px;
+  height:                  100vh;
+  margin-top:              25vh;
+
+  .pageSelectionItem {
+    position:     relative;
+    width:        210px;
+    height:       210px;
+    border:       0px solid #382828;
+    margin:       0;
+    cursor:       pointer;
+    overflow:     hidden;
+
+    button {
+
+      position:           absolute;
+      top:                50%;
+      left:               50%;
+      font-weight:        700;
+      transform:          translate(-50%, -50%);
+      background-color:   transparent;
+      border:             none;
+      outline:            none;
+      cursor:             pointer;
+      font-size:          15pt
+    }
+  }
+}
+
+
+

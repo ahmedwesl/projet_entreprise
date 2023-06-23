@@ -1,0 +1,41 @@
+.pagesSelectionContainer {
+  display: grid;
+  grid-template-columns:  repeat(2, 5cm);
+  grid-auto-rows: 5cm;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100vh;
+  margin-top: 25vh;
+
+  p {
+    font-size: 18px;
+    color: #fff;
+  }
+
+  div.pageSelectionItem {
+
+    &[option-id=Page1] {
+      background-color: #d3145a;
+    }
+
+    &[option-id=Page2] {
+      background-color: #ee8301;
+    }
+
+    &[option-id=Page3] {
+      background-color: #3202ee;
+    }
+
+    &[option-id=Page4] {
+      background-color: #7bc942;
+    }
+  }
+
+}
+
+
+
+
+
+
